@@ -1,0 +1,7 @@
+To view the traffic that is going through
+tail -f /var/log/maillog | grep relay
+
+To get the IP addresses that are coming into the server
+cat /var/log/maillog|grep ETRN|cut -d [ -f3| cut -d ] -f1|grep ^[0-9]|sort -un
+
+
