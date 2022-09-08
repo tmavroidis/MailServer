@@ -1,7 +1,16 @@
-To view the traffic that is going through
+To view the traffic that is going through in real time 
 tail -f /var/log/maillog | grep relay
+
+To view all traffic on the maillog
+tail -f /var/log/maillog 
 
 To get the IP addresses that are coming into the server
 cat /var/log/maillog|grep ETRN|cut -d [ -f3| cut -d ] -f1|grep ^[0-9]|sort -un
 
+find a users email
+grep -i "someuser@recipientdomain.com" /var/log/maillog
+fgrep 'tom@ntm.net' /var/log/maillog
 
+send an email from the command line
+echo "Subject: hello" | sendmail test@example.com
+echo "Subject: hello" | sendmail -v test@example.com < mail.txt   ( with an attachment )
