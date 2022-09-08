@@ -1,0 +1,12 @@
+I have been using the BlueOnyx distribution https://www.blueonyx.it/  for mail servers ever since Cobalt Networks discontinued their product line. Well they acutally didn't discontinue it, 
+Sun microsystems bought the company and witin a year shut it down. Regardless, Michael Stauber and his team have been actively developing and supporting the distribution 
+ever since. It still is a very capable and secure piece of software that allows those familliar with the underpinnings to quickly get a server up and running.
+
+Problems began earlier this year (2022) when Google started enforcing DMARC and SPF records. In order for them to work not only do the DNS records need to be correct, 
+but you also need a RDNS record (IP to domain) that in many cases can only be maintained via the upstream ISP. Then you need a DMARC record and an SPF record 
+that insturcts the mail servers on what to do.
+
+Inherent problem in the bluequartz server is that the SMTP server name is that of the root, and since many sites can be hosted on this appliance you need to do 
+some fancy footwork in DNS to make it work. Additionally the root server need to correspond to the forward and reverse DNS IP address.
+
+More to come , btu for now its easier to just have one site (the main site) per appliance.
